@@ -7,6 +7,7 @@ import org.koin.dsl.module
 
 expect val platformModule: Module
 
-val sharedModule = module {
-    viewModelOf(::TestDiViewmodel)
-}
+val sharedModule =
+    module {
+        viewModelOf(::TestDiViewmodel)
+    }
