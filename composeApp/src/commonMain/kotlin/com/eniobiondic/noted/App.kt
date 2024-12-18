@@ -25,7 +25,6 @@ fun App() {
     }
 }
 
-
 class HomeScreen : Screen {
     @OptIn(KoinExperimentalAPI::class)
     @Composable
@@ -35,7 +34,7 @@ class HomeScreen : Screen {
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             Text("This is Home Screen ${viewmodel.getHelloWorld()}", textAlign = TextAlign.Center)
             Button(onClick = { navigator.push(NoteDetailsScreen()) }) {
@@ -50,7 +49,7 @@ class NoteDetailsScreen : Screen {
     override fun Content() {
         Box(
             modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
             Text("This is Note Details Screen")
         }
