@@ -1,5 +1,6 @@
 [versions]
 agp = "8.5.2"
+arrow = "1.2.4"
 android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
@@ -23,6 +24,7 @@ ktlintCli = "1.2.1"
 ktor = "3.0.0"
 lifecycleViewModel = "2.8.7"
 logback = "1.5.11"
+firebaseAdmin = "9.3.0"
 voyagerNavigation = "1.1.0-beta02"
 
 [bundles]
@@ -43,6 +45,20 @@ voyager-navigation = [
     "voyager-navigator",
     "voyager-bottom-sheet",
     "voyager-koin",
+]
+
+ktor-server = [
+    "ktor-server-core",
+    "ktor-server-content-negotiation",
+    "ktor-server-call-logging",
+    "ktor-server-default-headers",
+    "ktor-server-cors",
+    "ktor-server-resources",
+    "ktor-server-auth",
+    "ktor-server-netty",
+    "ktor-server-config-yaml",
+    "ktor-serialization-kotlinx-json",
+    "ktor-server-status-pages",
 ]
 
 [libraries]
@@ -68,9 +84,28 @@ koin-logger = { module = "io.insert-koin:koin-logger-slf4j", version.ref = "koin
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 ktlint-cli = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlintCli" }
-ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
-ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
+arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
+arrow-coroutines = { group = "io.arrow-kt", name = "arrow-fx-coroutines", version.ref = "arrow" }
+
+# ktor server related dependencies
+firebase-admin = { module = "com.google.firebase:firebase-admin", version.ref = "firebaseAdmin" }
+
+# shared ktor dependencies
+ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json" }
+
+#ktor server speciic dependencies
+ktor-server-core = { group = "io.ktor", name = "ktor-server-core-jvm" }
+ktor-server-content-negotiation = { group = "io.ktor", name = "ktor-server-content-negotiation-jvm" }
+ktor-server-call-logging = { group = "io.ktor", name = "ktor-server-call-logging-jvm" }
+ktor-server-default-headers = { group = "io.ktor", name = "ktor-server-default-headers-jvm" }
+ktor-server-cors = { group = "io.ktor", name = "ktor-server-cors-jvm" }
+ktor-server-resources = { group = "io.ktor", name = "ktor-server-resources-jvm" }
+ktor-server-auth = { group = "io.ktor", name = "ktor-server-auth-jvm" }
+ktor-server-netty = { group = "io.ktor", name = "ktor-server-netty-jvm" }
+ktor-server-config-yaml = { group = "io.ktor", name = "ktor-server-config-yaml" }
+ktor-server-status-pages = { group = "io.ktor", name = "ktor-server-status-pages" }
 ktor-server-test-host = { module = "io.ktor:ktor-server-test-host" }
+
 lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleViewModel" }
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 voyager-bottom-sheet = { module = "cafe.adriel.voyager:voyager-bottom-sheet-navigator", version.ref = "voyagerNavigation" }
