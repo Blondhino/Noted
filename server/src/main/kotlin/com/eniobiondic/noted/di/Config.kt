@@ -1,6 +1,7 @@
 package com.eniobiondic.noted.di
 
 import com.eniobiondic.noted.auth.di.authModule
+import com.eniobiondic.noted.database.di.databaseModule
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
 import org.koin.dsl.module
@@ -13,6 +14,7 @@ fun Application.configureKoin() {
         modules(
             module { single { this@configureKoin } },
             authModule(),
+            databaseModule(),
         )
     }
 }

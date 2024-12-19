@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS UserEntity (
+    id UUID PRIMARY KEY,
+    email TEXT NOT NULL UNIQUE,
+    profile_image_url TEXT NOT NULL UNIQUE
+);
+
+CREATE INDEX IF NOT EXISTS index_userEntity_email ON UserEntity(email);
+
+insert:
+INSERT INTO UserEntity (id, email, profile_image_url) VALUES (?, ?, ?);
+
+getAll:
+SELECT * FROM UserEntity;
+
+getById:
+SELECT * FROM UserEntity WHERE id = ?;
+
+getByEmail:
+SELECT * FROM UserEntity WHERE email = ?;
+
+delete:
+DELETE FROM UserEntity WHERE id = ?;
