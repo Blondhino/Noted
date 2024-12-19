@@ -6,26 +6,30 @@ android-minSdk = "24"
 android-targetSdk = "34"
 androidx-activityCompose = "1.9.3"
 androidx-appcompat = "1.7.0"
-androidx-constraintlayout = "2.1.4"
+androidx-constraintlayout = "2.2.0"
 androidx-core-ktx = "1.15.0"
 androidx-espresso-core = "3.6.1"
-androidx-lifecycle = "2.8.3"
+androidx-lifecycle = "2.8.4"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
-compose-multiplatform = "1.7.0"
+compose-multiplatform = "1.7.1"
 detekt = "1.23.6"
 detektCompose = "0.3.13"
 detektFormatting = "1.23.6"
 junit = "4.13.2"
-koin = "3.6.0-Beta4"
-koinComposeMultiplatform = "1.2.0-Beta4"
+koin = "4.0.0"
+koinComposeMultiplatform = "4.0.0"
 kotlin = "2.0.21"
 ktlintCli = "1.2.1"
 ktor = "3.0.0"
 lifecycleViewModel = "2.8.7"
 logback = "1.5.11"
 firebaseAdmin = "9.3.0"
-voyagerNavigation = "1.1.0-beta02"
+voyagerNavigation = "1.1.0-beta03"
+sqldelight = "2.0.2"
+postgresql = "42.7.3"
+h2-version = "2.2.224"
+hikari = "6.0.0"
 
 [bundles]
 koin-android = [
@@ -61,6 +65,15 @@ ktor-server = [
     "ktor-server-status-pages",
 ]
 
+server-database = [
+    "postgresql",
+    "h2",
+    "hikari",
+    "sqldelight-coroutines",
+    "sqldelight-driver-jdbc",
+    "sqldelight-dialect-postgresql",
+]
+
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
@@ -86,9 +99,13 @@ kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version
 ktlint-cli = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlintCli" }
 arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
 arrow-coroutines = { group = "io.arrow-kt", name = "arrow-fx-coroutines", version.ref = "arrow" }
+sqldelight-coroutines = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqldelight" }
 
 # ktor server related dependencies
 firebase-admin = { module = "com.google.firebase:firebase-admin", version.ref = "firebaseAdmin" }
+postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+h2 = { module = "com.h2database:h2", version.ref = "h2-version" }
+
 
 # shared ktor dependencies
 ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json" }
@@ -105,6 +122,9 @@ ktor-server-netty = { group = "io.ktor", name = "ktor-server-netty-jvm" }
 ktor-server-config-yaml = { group = "io.ktor", name = "ktor-server-config-yaml" }
 ktor-server-status-pages = { group = "io.ktor", name = "ktor-server-status-pages" }
 ktor-server-test-host = { module = "io.ktor:ktor-server-test-host" }
+sqldelight-driver-jdbc = { group = "app.cash.sqldelight", name = "jdbc-driver", version.ref = "sqldelight" }
+sqldelight-dialect-postgresql = { group = "app.cash.sqldelight", name = "postgresql-dialect", version.ref = "sqldelight" }
+hikari = { group = "com.zaxxer", name = "HikariCP", version.ref = "hikari" }
 
 lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleViewModel" }
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
@@ -122,3 +142,4 @@ kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
