@@ -18,5 +18,8 @@ SELECT * FROM UserEntity WHERE id = ?;
 getByEmail:
 SELECT * FROM UserEntity WHERE email = ?;
 
-delete:
+deleteById:
 DELETE FROM UserEntity WHERE id = ?;
+
+deleteByEmail:
+DELETE FROM UserEntity WHERE email = ?;

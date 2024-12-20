@@ -7,6 +7,6 @@ class V1 {
     @Resource("/get-user")
     class GetUserRoute(val v1: V1 = V1())
 
-    @Resource("/delete-user")
+    @Resource("/delete-me")
     class DeleteUserRoute(val v1: V1 = V1())
 }

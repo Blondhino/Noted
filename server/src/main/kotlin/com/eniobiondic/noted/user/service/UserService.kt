@@ -9,5 +9,5 @@ interface UserService {
         email: String,
         profilePictureUrl: String,
     ): Either<DomainError, AppUser>
-    suspend fun deleteUser(id: String): Either<DomainError, Unit>
+    suspend fun deleteUser(email: String): Either<DomainError, Unit>
 }
