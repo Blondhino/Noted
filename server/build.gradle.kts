@@ -36,6 +36,18 @@ sqldelight {
     }
 }
 
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    compilerOptions {
+        freeCompilerArgs.addAll(
+            listOf(
+                "-opt-in=kotlinx.serialization.ExperimentalSerializationApi",
+                "-opt-in=kotlin.uuid.ExperimentalUuidApi",
+            ),
+        )
+    }
+}
+
 dependencies {
     implementation(projects.shared)
     implementation(libs.logback)

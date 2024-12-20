@@ -3,6 +3,7 @@ package com.eniobiondic.noted
 import com.eniobiondic.noted.di.configureKoin
 import com.eniobiondic.noted.plugins.configureRouting
 import com.eniobiondic.noted.plugins.configureSecurity
+import com.eniobiondic.noted.plugins.configureSerialization
 import io.ktor.server.application.Application
 
 fun main(args: Array<String>) {
@@ -11,6 +12,7 @@ fun main(args: Array<String>) {
 
 fun Application.module() {
     configureKoin()
+    configureSerialization()
     configureSecurity()
     configureRouting()
 }
